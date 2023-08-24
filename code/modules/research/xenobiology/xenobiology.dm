@@ -197,9 +197,9 @@
 
 	switch(heat_stage)
 		if(1)
-			. += "<span class='warning'>The vial is hot to the touch.</span>"
+			. += "<span class='warning'>[src] is hot to the touch.</span>"
 		if(2)
-			. += "<span class='warning'>The vial is scalding hot! Is it really a good idea to use this..?</span>"
+			. += "<span class='warning'>[src] is scalding hot! Is it really a good idea to use this..?</span>"
 
 /obj/item/slimepotion/sentience/attack()
 	return
@@ -217,7 +217,7 @@
 		return ..()
 	var/mob/living/simple_animal/SM = M
 	if(SM.sentience_type != sentience_type)
-		to_chat(user, "<span class='warning'>The potion won't work on [SM].</span>")
+		to_chat(user, "<span class='warning'>The [src] won't work on [SM].</span>")
 		return ..()
 
 	if(heat_stage >= 2)
@@ -228,7 +228,7 @@
 			explosion(T, -1, -1, 2, 3)
 		qdel(src)
 		return
-	to_chat(user, "<span class='notice'>You offer [src] sentience potion to [SM]...</span>")
+	to_chat(user, "<span class='notice'>You offer [src] to [SM]...</span>")
 	being_used = TRUE
 
 	var/ghostmsg = "Play as [SM.name], pet of [user.name]?"
@@ -249,7 +249,7 @@
 		to_chat(SM, "<span class='userdanger'>You are grateful to be self aware and owe [user] a great debt. Serve [user], and assist [user.p_them()] in completing [user.p_their()] goals at any cost.</span>")
 		if(SM.flags_2 & HOLOGRAM_2) //Check to see if it's a holodeck creature
 			to_chat(SM, "<span class='userdanger'>You also become depressingly aware that you are not a real creature, but instead a holoform. Your existence is limited to the parameters of the holodeck.</span>")
-		to_chat(user, "<span class='notice'>[M] accepts the potion and suddenly becomes attentive and aware. It worked!</span>")
+		to_chat(user, "<span class='notice'>[M] accepts the [src] and suddenly becomes attentive and aware. It worked!</span>")
 		after_success(user, SM)
 		qdel(src)
 	else
