@@ -15,10 +15,12 @@
 	strip_delay = 60
 	dog_fashion = /datum/dog_fashion/head/helmet
 	dyeable = FALSE
-	sprite_sheets = list(
-		"Vox" = 'icons/mob/clothing/species/vox/helmet.dmi',
-		"Drask" = 'icons/mob/clothing/species/drask/helmet.dmi',
-		"Grey" = 'icons/mob/clothing/species/grey/helmet.dmi'
+	sprite_sheets = list (
+		"Vox" = 'icons/mob/clothing/species/vox/helmet.dmi',				//Requires sprites
+		"Drask" = 'icons/mob/clothing/species/drask/helmet.dmi',			//Requires sprites
+		"Grey" = 'icons/mob/clothing/species/grey/helmet.dmi',				//Requires sprites
+		"Vulpkanin" = 'icons/mob/clothing/species/vulpkanin/helmet.dmi',	//Finished
+		"Unathi" = 'icons/mob/clothing/species/unathi/helmet.dmi'			//Finished
 		)
 
 /obj/item/clothing/head/helmet/attack_self__legacy__attackchain(mob/user)
@@ -96,6 +98,10 @@
 	flags_cover = HEADCOVERSEYES | HEADCOVERSMOUTH
 	strip_delay = 80
 	dog_fashion = null
+	toggle_message = "You lower the face shield of"
+	alt_toggle_message = "You pull up the face shield of"
+	actions_types = list(/datum/action/item_action/toggle_helmet_mode)
+	can_toggle = 1
 
 /obj/item/clothing/head/helmet/riot/knight
 	name = "medieval helmet"
